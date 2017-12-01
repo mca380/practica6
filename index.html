@@ -37,11 +37,18 @@
 </body>
 
 <script>
+    var n
+    while (i>=n){
+
+
+    }
+
+
     function Calcular() {
         var nombre = document.getElementById('nombref').value;
-        if(nombre>0 && nombre<=9){/*xq el nombre sigui major que 0 i que 10*/
+        if(nombre>1){/*xq el nombre sigui major que 0 i que 10*/
             $('#taulanombresprimers tr:last').after('<tr><th>Nombres primers de ' +nombre+ '</th><tr>');
-                for (var i = 1; i <= 10; i++) {/*aqui deim que multiplica tots els numeros introduits fins amb el num 10*/
+                for (var i = 1; i >= n; i++) {/*aqui deim que multiplica tots els numeros introduits fins amb el num 10*/
                     $('#taulanombresprimers tr:last').after('<tr><td>' + nombre + 'X' +i+ '</td><td>' + (i*nombre) + '</td></tr>'); 
                 }
             } else {
