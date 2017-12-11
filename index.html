@@ -15,10 +15,10 @@
         <br><br>
         <form>
             <label for="">Introdueix un nombre major o igual a l'1:</label>
-            <input type="text" id="nombref">
+            <input type="text" id="nombre">
             <br><br>
             <input type="button" class="btn btn-success" onclick="Calcular();" value="Calcular">
-            <input type="butonn" class="btn btn-danger " onclick="Eliminar();" value="Eliminar">
+            <!--<input type="butonn" class="btn btn-danger " onclick="Eliminar();" value="Eliminar">-->
         </form>
         <table id="taulanombresprimers" class="table table-hover">
             <thead>
@@ -37,28 +37,32 @@
 </body>
 
 <script>
-    var n
-    while (i>=n){
-
-
-    }
-
-
     function Calcular() {
-        var nombre = document.getElementById('nombref').value;
-        if(nombre>1){/*xq el nombre sigui major que 0 i que 10*/
-            $('#taulanombresprimers tr:last').after('<tr><th>Nombres primers de ' +nombre+ '</th><tr>');
-                for (var i = 1; i >= n; i++) {/*aqui deim que multiplica tots els numeros introduits fins amb el num 10*/
-                    $('#taulanombresprimers tr:last').after('<tr><td>' + nombre + 'X' +i+ '</td><td>' + (i*nombre) + '</td></tr>'); 
+        var nombre = document.getElementById('nombre').value;
+        if(nombre>=1 && !isNaN (nombre)){
+            $('#taulanombresprimers tr:last').after('<tr><th> Nombres primers fins al ' +nombre+ '</th><tr>');
+                for (var i = 1; i <= nombre; i++) {
+                    if(esprimer(i));
+                    $('#taulanombresprimers tr:last').after('<tr><td>' + "<br>" +i+ '</td><td>' + '</td></tr>'); 
                 }
             } else {
-                alert ("no has introduit un valor vàlid");
+                alert ("No has introduit un valor vàlid");
             }
         } 
-        function Eliminar() {
-            for(var i = 0; i <= 12; i++)/*aqui pos 12 perq si pos 10 me deixa 2 dies sense eliminar*/
-            document.getElementById("taulanombresprimers").deleteRow(1);/*posant 0 s'elimina tota la taula i no la torna a crear si no es torna a carregar la pagina.Elimina el tr del body*/
-        }
-    </script>
-</script>
-</html>
+        
+        /* function Eliminar() {
+            for(var i = 0; i <= nombre; i++) { //COM POSAR FINS QUALSEVOL NUMERO
+                document.getElementById("taulanombresprimers").deleteRow(1);
+            }
+            */
+            function esprimer (nombre) {
+                for (var divisor=2; divisor<nombre; divisor++) {
+                    if (nombre%divisor ==0){
+                        return false;
+                    }
+                }
+                return true;
+            }
+            
+        </script>
+        </html>
