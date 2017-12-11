@@ -42,8 +42,9 @@
         if(nombre>=1 && !isNaN (nombre)){
             $('#taulanombresprimers tr:last').after('<tr><th> Nombres primers fins al ' +nombre+ '</th><tr>');
                 for (var i = 1; i <= nombre; i++) {
-                    if(esprimer(i));
-                    $('#taulanombresprimers tr:last').after('<tr><td>' + "<br>" +i+ '</td><td>' + '</td></tr>'); 
+                    if(esprimer(i)){
+                        $('#taulanombresprimers tr:last').after('<tr><td>' + "<br>" +i+ '</td><td>' + '</td></tr>'); 
+                    }
                 }
             } else {
                 alert ("No has introduit un valor vàlid");
@@ -62,7 +63,6 @@
                     }
                 }
                 return true;
-            }
-            
+            }          
         </script>
         </html>
